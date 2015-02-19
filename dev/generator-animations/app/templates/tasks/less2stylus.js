@@ -6,9 +6,11 @@ module.exports = function(grunt){
 		grunt.log.writeln.apply(null, arguments);
 	};
 	
-	grunt.registerTask('less2stylus', 'less2stylus Descdription', function(arg1, arg2) {
+	var fs = require('fs');
+	
+	grunt.registerTask('less2stylus', 'less2stylus Descdription', function() {
 	  
-		grunt.log.writeln(arguments); 
+		grunt.log.writeln(this.options()); 
 		
 		// pfad zum file (aus argumente)
 		var sourceFile;  // vorsicht, ... muss nicht absolut sein -> wenn nicht absolutizing 

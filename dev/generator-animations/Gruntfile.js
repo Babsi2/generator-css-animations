@@ -2,6 +2,15 @@ module.exports = function(grunt) {
   require('load-grunt-tasks')(grunt);
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
+    jshint: {
+      options: {
+        jshintrc: '.jshintrc'
+      },
+      all: [
+        'Gruntfile.js',
+        'tasks/*.js',
+      ]
+    },
     watch: {
       sass: {
         files: ['sass/**/*.{scss,sass}','sass/_partials/**/*.{scss,sass}'],
@@ -35,10 +44,9 @@ module.exports = function(grunt) {
     },
     scss2less: {
       options: {
-        sourceMap: true,
-        outputStyle: 'compressed'
+        sourceMap: 'none'
       },
-      dist: {
+      compile: {
         files: {
           'less/main.less': 'sass/main.scss'
         }

@@ -24,8 +24,8 @@ module.exports = yeoman.generators.Base.extend({
     var prompts = [{
       type: 'confirm',
       name: 'someOption',
-      message: 'Would you like to enable this option?',
-      default: true
+      message: 'Whälen Sie eine Stylesheetvariante? (CSS/Stylus/Less/Scss)',
+      default: 'Scss'
     }];
 
     this.prompt(prompts, function (props) {
@@ -42,20 +42,38 @@ module.exports = yeoman.generators.Base.extend({
         this.destinationPath('package.json')
       );
       
-      this.mkdir('sass');
-      this.fs.copy(
-        this.templatePath('main.scss'),
-        this.destinationPath('/sass/main.scss')
-      );
+      switch(this.someOption){
+        case 'Stylus':
+          this.mkdir('tasks');
+          this.fs.copy(
+            this.templatePath('tasks/less2stylus.js'),
+            this.destinationPath('/tasks/less2stylus.js')
+          );
+          this.mkdir('stylus');
+        break;
+
+        case 'Less':
+
+        break;
+
+        case 'Scss':
+          this.mkdir('sass');
+          this.fs.copy(
+            this.templatePath('main.scss'),
+            this.destinationPath('/sass/main.scss')
+          );
+        break;
+
+        case 'Css':
+
+        break;
+      }
+      
       this.fs.copy(
         this.templatePath('Gruntfile.js'),
         this.destinationPath('Gruntfile.js')
       );
-      this.mkdir('tasks');
-      this.fs.copy(
-        this.templatePath('tasks/less2stylus.js'),
-        this.destinationPath('/tasks/less2stylus.js')
-      );
+      
     },
 
     projectfiles: function () {
