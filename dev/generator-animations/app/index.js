@@ -22,9 +22,8 @@ module.exports = yeoman.generators.Base.extend({
     ));
 
     var prompts = [{
-      type: 'confirm',
       name: 'someOption',
-      message: 'Whälen Sie eine Stylesheetvariante? (CSS/Stylus/Less/Scss)',
+      message: 'Whählen Sie eine Stylesheetvariante? (CSS/Stylus/Less/Scss)',
       default: 'Scss'
     }];
 
