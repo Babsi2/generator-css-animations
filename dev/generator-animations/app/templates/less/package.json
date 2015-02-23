@@ -26,11 +26,8 @@
     "yeoman-generator": "^0.18.0",
     "chalk": "^0.5.0",
     "yosay": "^0.3.0",
-    "fs": "*",
     "grunt": "~0.4.5",
-    "load-grunt-tasks": "*",
     "grunt-cli": "0.1.13",
-    "grunt-sass": "0.8.1",
     "grunt-scss2less":"*",
     "grunt-contrib-watch": "~0.6.1",
     "jit-grunt": "~0.7.0"

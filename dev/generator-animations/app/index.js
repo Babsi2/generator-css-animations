@@ -36,23 +36,45 @@ module.exports = yeoman.generators.Base.extend({
 
   writing: {
     app: function () {
-      this.fs.copy(
-        this.templatePath('_package.json'),
-        this.destinationPath('package.json')
-      );
+      
       
       switch(this.someOption){
         case 'Stylus':
+          this.mkdir('sass');
+          this.fs.copy(
+            this.templatePath('main.scss'),
+            this.destinationPath('/sass/main.scss')
+          );
           this.mkdir('tasks');
           this.fs.copy(
             this.templatePath('tasks/less2stylus.js'),
             this.destinationPath('/tasks/less2stylus.js')
           );
           this.mkdir('stylus');
+          this.fs.copy(
+            this.templatePath('stylus/Gruntfile.js'),
+            this.destinationPath('Gruntfile.js')
+          );
+          this.fs.copy(
+            this.templatePath('stylus/package.json'),
+            this.destinationPath('package.json')
+          );
         break;
 
         case 'Less':
-
+          this.mkdir('sass');
+          this.fs.copy(
+            this.templatePath('main.scss'),
+            this.destinationPath('/sass/main.scss')
+          );
+          this.fs.copy(
+            this.templatePath('less/Gruntfile.js'),
+            this.destinationPath('Gruntfile.js')
+          );
+          this.fs.copy(
+            this.templatePath('less/package.json'),
+            this.destinationPath('package.json')
+          );
         break;
 
         case 'Scss':
@@ -64,14 +86,23 @@ module.exports = yeoman.generators.Base.extend({
         break;
 
         case 'Css':
-
+          this.mkdir('sass');
+          this.fs.copy(
+            this.templatePath('main.scss'),
+            this.destinationPath('/sass/main.scss')
+          );
+          this.fs.copy(
+            this.templatePath('css/Gruntfile.js'),
+            this.destinationPath('Gruntfile.js')
+          );
+          this.fs.copy(
+            this.templatePath('css/package.json'),
+            this.destinationPath('package.json')
+          );  
         break;
       }
       
-      this.fs.copy(
-        this.templatePath('Gruntfile.js'),
-        this.destinationPath('Gruntfile.js')
-      );
+      
       
     },
 
