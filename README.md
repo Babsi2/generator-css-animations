@@ -26,13 +26,13 @@ Yeoman travels light. He didn't pack any generators when he moved in. You can th
 To install generator-test from npm, run:
 
 ```bash
-npm install -g generator-test
+npm install -g generator-css-animations
 ```
 
 Finally, initiate the generator:
 
 ```bash
-yo test
+yo css-animations
 ```
 
 ### Getting To Know Yeoman
