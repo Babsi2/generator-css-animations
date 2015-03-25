@@ -9,18 +9,6 @@ module.exports = function(grunt) {
         'Gruntfile.js',
       ]
     },
-    watch: {
-      scss2less:{
-        files: ['less/**/*.less', 'less/_partials/**/*.less'],
-        tasks: ['scss2less:dist']
-      },
-      livereload:{
-        files: ['*.html', '*.php', 'js/**/*.{js,json}', 'less/*.less', 'img/**/*.{png,jpg,jpeg,gif,webp,svg}'],
-        options: {
-          livereload: true
-        }
-      }
-    },
     scss2less: {
       options: {
         sourceMap: 'none'
@@ -32,7 +20,7 @@ module.exports = function(grunt) {
       }
     }
   });
-  grunt.registerTask('default', ['scss2less:dist', 'watch']);
+  grunt.registerTask('default', ['scss2less:dist']);
   grunt.loadNpmTasks('grunt-scss2less');
   grunt.loadNpmTasks('grunt-contrib-watch');
 };

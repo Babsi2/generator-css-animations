@@ -6,11 +6,6 @@ var yosay = require('yosay');
 module.exports = yeoman.generators.Base.extend({
   initializing: function () {
     this.pkg = require('../package.json');
-    this.on('end', function () {
-      if (!this.options['skip-install']) {
-        this.installDependencies();
-      }
-    });
   },
 
   prompting: function () {
@@ -18,7 +13,7 @@ module.exports = yeoman.generators.Base.extend({
 
     // Have Yeoman greet the user.
     this.log(yosay(
-      'Welcome to the doozie' + chalk.red('Animations') + ' generator!'
+      'Welcome to the tiptop' + chalk.red('Test') + ' generator!'
     ));
 
     var prompts = [{
@@ -36,10 +31,10 @@ module.exports = yeoman.generators.Base.extend({
 
   writing: {
     app: function () {
-      
-      
+      this.log(this.someOption);
       switch(this.someOption){
         case 'Stylus':
+          this.log('stylus');
           this.mkdir('sass');
           this.fs.copy(
             this.templatePath('main.scss'),
@@ -47,37 +42,33 @@ module.exports = yeoman.generators.Base.extend({
           );
           this.mkdir('tasks');
           this.fs.copy(
-            this.templatePath('tasks/less2stylus.js'),
-            this.destinationPath('/tasks/less2stylus.js')
+            this.templatePath('_scss2stylus.js'),
+            this.destinationPath('/tasks/scss2stylus.js')
           );
           this.mkdir('stylus');
           this.fs.copy(
-            this.templatePath('stylus/Gruntfile.js'),
+            this.templatePath('_stylusGruntfile.js'),
             this.destinationPath('Gruntfile.js')
           );
-          this.fs.copy(
-            this.templatePath('stylus/package.json'),
-            this.destinationPath('package.json')
-          );
+          this.log('if done, run grunt to build main.stylus');
         break;
 
         case 'Less':
+          this.log('less');
           this.mkdir('sass');
           this.fs.copy(
             this.templatePath('main.scss'),
             this.destinationPath('/sass/main.scss')
           );
           this.fs.copy(
-            this.templatePath('less/Gruntfile.js'),
+            this.templatePath('_lessGruntfile.js'),
             this.destinationPath('Gruntfile.js')
           );
-          this.fs.copy(
-            this.templatePath('less/package.json'),
-            this.destinationPath('package.json')
-          );
+          this.log('if done, run grunt to build main.less');
         break;
 
         case 'Scss':
+          this.log('scss');
           this.mkdir('sass');
           this.fs.copy(
             this.templatePath('main.scss'),
@@ -86,24 +77,27 @@ module.exports = yeoman.generators.Base.extend({
         break;
 
         case 'Css':
+          this.log('css');
           this.mkdir('sass');
           this.fs.copy(
             this.templatePath('main.scss'),
             this.destinationPath('/sass/main.scss')
           );
           this.fs.copy(
-            this.templatePath('css/Gruntfile.js'),
+            this.templatePath('_cssGruntfile.js'),
             this.destinationPath('Gruntfile.js')
           );
-          this.fs.copy(
-            this.templatePath('css/package.json'),
-            this.destinationPath('package.json')
-          );  
+          this.log('if done, run grunt to build main.css');
         break;
       }
-      
-      
-      
+      this.fs.copy(
+        this.templatePath('_package.json'),
+        this.destinationPath('package.json')
+      );
+      this.fs.copy(
+        this.templatePath('_bower.json'),
+        this.destinationPath('bower.json')
+      );
     },
 
     projectfiles: function () {

@@ -9,18 +9,6 @@ module.exports = function(grunt) {
         'Gruntfile.js',
       ]
     },
-    watch: {
-      sass: {
-        files: ['sass/**/*.{scss,sass}','sass/_partials/**/*.{scss,sass}'],
-        tasks: ['sass:dist']
-      },
-      livereload:{
-        files: ['*.html', '*.php', 'js/**/*.{js,json}', 'css/*.css', 'img/**/*.{png,jpg,jpeg,gif,webp,svg}'],
-        options: {
-          livereload: true
-        }
-      }
-    },
     sass: {
       options: {
         sourceMap: true,
@@ -31,9 +19,9 @@ module.exports = function(grunt) {
           'css/main.css': 'sass/main.scss'
         }
       }
-    },
+    }
   });
-  grunt.registerTask('default', ['sass:dist', 'watch']);
+  grunt.registerTask('default', ['sass:dist']);
   grunt.loadNpmTasks('grunt-sass');
   grunt.loadNpmTasks('grunt-contrib-watch');
 };

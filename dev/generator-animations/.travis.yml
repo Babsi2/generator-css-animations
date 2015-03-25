@@ -1,6 +1,0 @@
-language: node_js
-node_js:
-  - '0.10'
-before_install:
-  - currentfolder=${PWD##*/}
-  - if [ "$currentfolder" != 'generator-animations' ]; then cd .. && eval "mv $currentfolder generator-animations" && cd generator-animations; fi

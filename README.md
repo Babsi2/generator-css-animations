@@ -1,4 +1,4 @@
-# generator-animations [![Build Status](https://secure.travis-ci.org/Babsi2/generator-animations.png?branch=master)](https://travis-ci.org/Babsi2/generator-animations)
+# generator-test [![Build Status](https://secure.travis-ci.org/Babsi2/generator-test.png?branch=master)](https://travis-ci.org/Babsi2/generator-test)
 
 > [Yeoman](http://yeoman.io) generator
 
@@ -23,16 +23,16 @@ npm install -g yo
 
 Yeoman travels light. He didn't pack any generators when he moved in. You can think of a generator like a plug-in. You get to choose what type of application you wish to create, such as a Backbone application or even a Chrome extension.
 
-To install generator-animations from npm, run:
+To install generator-test from npm, run:
 
 ```bash
-npm install -g generator-animations
+npm install -g generator-test
 ```
 
 Finally, initiate the generator:
 
 ```bash
-yo animations
+yo test
 ```
 
 ### Getting To Know Yeoman
