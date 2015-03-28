@@ -20,8 +20,14 @@ module.exports = function(grunt) {
           'stylus/main.styl': 'sass/main.scss'
         }
       }
+    },
+    autoprefixer: {
+      no_dest: {
+        src: 'stylus/main.styl'
+      },
     }
   });
-  grunt.registerTask('default', ['scss2stylus']);
+  grunt.registerTask('default', ['scss2stylus', 'autoprefixer']);
+  grunt.loadNpmTasks('grunt-autoprefixer');
   grunt.loadTasks('tasks');
 };

@@ -18,9 +18,15 @@ module.exports = function(grunt) {
           'less/main.less': 'sass/main.scss'
         }
       }
+    },
+    autoprefixer: {
+      no_dest: {
+        src: 'less/main.less'
+      },
     }
   });
-  grunt.registerTask('default', ['scss2less:dist']);
+  grunt.registerTask('default', ['scss2less:dist', 'autoprefixer']);
   grunt.loadNpmTasks('grunt-scss2less');
+  grunt.loadNpmTasks('grunt-autoprefixer');
   grunt.loadNpmTasks('grunt-contrib-watch');
 };

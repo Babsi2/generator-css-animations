@@ -35,6 +35,7 @@
     "grunt-scss2less":"*",
     "grunt-contrib-watch": "~0.6.1",
     "grunt-contrib-clean": ">=0.4.0",
+    "grunt-autoprefixer": "*",
     "jit-grunt": "~0.7.0"
   },
   "devDependencies": {

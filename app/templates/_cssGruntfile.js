@@ -19,9 +19,15 @@ module.exports = function(grunt) {
           'css/main.css': 'sass/main.scss'
         }
       }
+    },
+    autoprefixer: {
+      no_dest: {
+        src: 'css/main.css'
+      },
     }
   });
-  grunt.registerTask('default', ['sass:dist']);
+  grunt.registerTask('default', ['sass:dist', 'autoprefixer']);
   grunt.loadNpmTasks('grunt-sass');
+  grunt.loadNpmTasks('grunt-autoprefixer');
   grunt.loadNpmTasks('grunt-contrib-watch');
 };
