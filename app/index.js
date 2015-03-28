@@ -89,6 +89,20 @@ module.exports = yeoman.generators.Base.extend({
           );
           this.log('if done, run grunt to build main.css');
         break;
+
+        case 'CSS':
+          this.log('css');
+          this.mkdir('sass');
+          this.fs.copy(
+            this.templatePath('main.scss'),
+            this.destinationPath('/sass/main.scss')
+          );
+          this.fs.copy(
+            this.templatePath('_cssGruntfile.js'),
+            this.destinationPath('Gruntfile.js')
+          );
+          this.log('if done, run grunt to build main.css');
+        break;
       }
       this.fs.copy(
         this.templatePath('index.html'),

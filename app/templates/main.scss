@@ -18,7 +18,7 @@
 
 @mixin bounceIn($str){
   &:hover{
-    -animation: #{$str};
+    animation: #{$str};
   }
 }
 
@@ -76,14 +76,14 @@
 
 @mixin zoom {
   /* Webkit for Chrome and Safari */
-  -webkit-transform: scale(1, 1); 
-  -webkit-transition-duration: 500ms;
-  -webkit-transition-timing-function: ease-out;
+  transform: scale(1, 1); 
+  transition-duration: 500ms;
+  transition-timing-function: ease-out;
   &:hover{
     /* Webkit for Chrome and Safari */
-    -webkit-transform: scale(1.2, 1.2); 
-    -webkit-transition-duration: 500ms;
-    -webkit-transition-timing-function: ease-out;
+    transform: scale(1.2, 1.2); 
+    transition-duration: 500ms;
+    transition-timing-function: ease-out;
   }
 }
 
